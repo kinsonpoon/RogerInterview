@@ -14,4 +14,5 @@ java -> Task1.java
   - cd graphql-client
   - npm i
   - npm start
-  - it only has one page, it list and return the first 100 items from the api
+  - it only has one page, it lists and return the first 100 items from the api
+  - ![img.png](img.png)
