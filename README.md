@@ -7,3 +7,11 @@ java -> Task1.java
   - input a number > 0 < than Integer.MAX_VALUE;
   - if valid -> print
   - if not valid print error message
+
+2) angular project
+  - apollo-angular
+  - cd angular
+  - cd graphql-client
+  - npm i
+  - npm start
+  - it only has one page, it list and return the first 100 items from the api

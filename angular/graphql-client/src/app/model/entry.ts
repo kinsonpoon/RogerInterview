@@ -15,7 +15,7 @@ export class Entry{
   category: any;
   constructor(item: any){
     this.url = 'https://www.rogers.com/support' + item?.url||'';
-    this.title = item?.seo?.title?.replace("Rogers","- Rogers").trim()||'';
+    this.title = item?.seo?.title?.replace("| Rogers","- Rogers").trim()||'';
     this.description = item?.seo?.description?.substring(0,80)||'';
     this.isNoIndex = item?.seo?.seo||'';
     const items = item?.url.split('/').filter((item: string)=>item!=="");
