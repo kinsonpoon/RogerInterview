@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   constructor(private pageTemplateService: PageTemplateService) { }
 
   async getData(){
-    this.pageTemplateService.getPageTemplates(0,100).then((data)=>{
+    this.pageTemplateService.getPageTemplates(this.skip,this.skip + this.limit).then((data)=>{
       this.skip = data.skip;
       this.limit = data.limit;
       this.total = data.total;
