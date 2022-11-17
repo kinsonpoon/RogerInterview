@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
       data.items.forEach((item: any)=>{
         this.pageTemplates.push(new Entry(item));
       });
-      console.log(this.pageTemplates);
+      // console.log(this.pageTemplates);
     });
 
   }
