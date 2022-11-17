@@ -1,19 +1,25 @@
-
 <div class="content" role="main">
-  <div  class="row p-8" id="ts_en_roam_like_home_and_roaming_support-1490890303025">
-    <!---->
-    <div  class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <div class="mb-16"><a  class="text-title-5"
-                             id="searchtitle_0"
-                             href="https://www.rogers.com/customer/support/article/roam-like-home-and-roaming-support">Roaming
-        Support</a><span  class="ds-bgcolor-fog ds-corners ml-4 px-8 categorylbl"
-                          id="searchcategory_0">Support <span
-        class="ng-star-inserted">-</span><!----> Wireless</span>
-      </div>
-      <p class="mb-0" id="searchDsr_0">Taking a trip and have questions about using your
-        phone? Learn how to use Roam Like Home.</p>
+  <div class="row flex-column-reverse flex-sm-row">
+    <div id="searchDescription" class="searchdescription col-sm-7 pb-8 order-first"><p
+      class="searchResultText">{{skip + 1}}-{{skip + limit}} of over {{total}} results</p>
     </div>
   </div>
-
+  <!--  list-->
+  <div class="ds-borders ds-brcolor-fog ds-corners mb-16 ng-star-inserted" *ngFor="let pageTemplate of pageTemplates">
+    <div class="row p-8" id="ts_en_roam_like_home_and_roaming_support-1490890303025">
+      <!---->
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="mb-16"><a class="text-title-5"
+                              id="searchtitle_0"
+                              [href]=pageTemplate.url>
+          {{pageTemplate.title}}
+        </a><span class="ds-bgcolor-fog ds-corners ml-4 px-8 categorylbl"
+                           id="searchcategory_0">{{pageTemplate.category["1"] | titlecase }}<span
+          class="ng-star-inserted" *ngIf="pageTemplate.category['2']"> - </span>{{pageTemplate.category["2"] | titlecase }}</span>
+        </div>
+        <p class="mb-0" id="searchDsr_0">{{pageTemplate.description}}</p>
+      </div>
+    </div>
+  </div>
 </div>
 

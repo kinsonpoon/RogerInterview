@@ -1,22 +1,12 @@
 import {Injectable} from '@angular/core';
 import {Apollo, gql, QueryRef} from 'apollo-angular';
+import {variable} from "@angular/compiler/src/output/output_ast";
 
 @Injectable({
   providedIn: 'root'
 })
-// skip: Int = 0
-// limit: Int = 100
-// preview: Boolean
-// locale: String
-// where: PageTemplateFilter
-// order: [PageTemplateOrder]
-//
-// total: Int!
-// skip: Int!
-// limit: Int!
-// items: [PageTemplate]!
 export class PageTemplateService {
-  private pageTemplateQuery: QueryRef<{ entries: any }, { }>;
+  private pageTemplateQuery: QueryRef<{ pageTemplateCollection: any }, {skip: number, limit: number}>;
 
   constructor(private apollo: Apollo) {
     this.pageTemplateQuery = this.apollo.watchQuery({
@@ -25,14 +15,21 @@ export class PageTemplateService {
     skip
     total
     limit
+    items{
+      url
+      seo{
+        title
+        description
+        isNoIndex
+      }
+    }
   }
-}`
-    });
+}`})
   }
 
-  async getPageTemplates(): Promise<any> {
-    const result = await this.pageTemplateQuery.refetch();
-    return result.data;
+  async getPageTemplates(skip: number, limit: number): Promise<any> {
+    const result = await this.pageTemplateQuery.refetch({skip, limit});
+    return result.data.pageTemplateCollection;
   }
 
 }
